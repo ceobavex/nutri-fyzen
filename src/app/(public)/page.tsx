@@ -8,7 +8,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/
 import { 
   ArrowRight, BrainCircuit, Activity, Users, Calendar, 
   Sparkles, PlayCircle, ShieldCheck, Zap, 
-  Stethoscope, CheckCircle2
+  Stethoscope, CheckCircle2, Plus
 } from 'lucide-react'
 import Link from 'next/link'
 
@@ -70,7 +70,6 @@ export default function LandingPage() {
                   Começar Agora <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
-              {/* CORREÇÃO: bg-transparent adicionado */}
               <Button size="lg" variant="outline" className="bg-transparent h-14 px-8 rounded-full border-white/20 hover:bg-white/10 text-white w-full sm:w-auto text-base backdrop-blur-sm">
                 <PlayCircle className="mr-2 h-5 w-5" /> Ver Demonstração
               </Button>
@@ -139,10 +138,10 @@ export default function LandingPage() {
             {[
               { icon: BrainCircuit, title: "Anamnese Inteligente", desc: "Questionários dinâmicos que se adaptam em tempo real baseados nas respostas do paciente." },
               { icon: Activity, title: "Consultas Online", desc: "Telemedicina integrada com alta qualidade de vídeo e segurança ponta a ponta." },
-              { icon: Users, title: "Gestão Completa", desc: "Controle absoluto sobre pacientes, agenda, faturamento e assinaturas do seu consultório." },
+              { icon: Users, title: "Gestão Completa", desc: "Controle absoluto sobre equipe, pacientes, agenda e assinaturas da clínica." },
               { icon: Stethoscope, title: "Experiência do Paciente", desc: "Área exclusiva (web e mobile) para acesso a refeições, evolução e chat direto." },
-              { icon: Zap, title: "Marketplace Embutido", desc: "Um ecossistema onde milhares de pacientes buscam e agendam com profissionais de ponta." },
-              { icon: Sparkles, title: "Automação Inteligente", desc: "Geração automática de listas de compras, lembretes de hidratação e análises de macros." }
+              { icon: Zap, title: "Marketplace Integrado", desc: "Um ecossistema onde pacientes buscam, agendam e pagam consultas online." },
+              { icon: Sparkles, title: "Automações PRO", desc: "Geração automática de lembretes, acompanhamento via WhatsApp e relatórios." }
             ].map((feat, i) => (
               <motion.div 
                 key={i}
@@ -170,7 +169,7 @@ export default function LandingPage() {
           <div className="flex flex-col md:flex-row items-start justify-between relative">
             <div className="hidden md:block absolute top-12 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/20 to-transparent" />
             {[
-              { step: "01", title: "Criação de Conta", desc: "Nutricionista configura a clínica digital em menos de 2 minutos." },
+              { step: "01", title: "Criação de Conta", desc: "Nutricionista configura a clínica e permissões da equipe em minutos." },
               { step: "02", title: "Onboarding do Paciente", desc: "Paciente entra via convite ou marketplace e responde a IA de pré-consulta." },
               { step: "03", title: "Acompanhamento Contínuo", desc: "Consultas, planos e chats acontecem em um ambiente seguro e elegante." }
             ].map((item, i) => (
@@ -241,7 +240,7 @@ export default function LandingPage() {
           </Tabs>
         </section>
 
-        {/* ANAMNESE IA (A Seção Mais Impactante) */}
+        {/* ANAMNESE IA */}
         <section id="anamnese" className="w-full max-w-7xl mx-auto px-6 py-32 relative">
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#0A232E]/20 to-transparent pointer-events-none" />
           <div className="grid lg:grid-cols-2 gap-16 items-center relative z-10">
@@ -281,54 +280,115 @@ export default function LandingPage() {
           </div>
         </section>
 
-        {/* PLANOS */}
+        {/* PLANOS SAAS */}
         <section className="w-full max-w-7xl mx-auto px-6 py-24">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold mb-4">Investimento Simples. Retorno Imediato.</h2>
+            <h2 className="text-3xl md:text-5xl font-bold mb-4">Escalabilidade para a sua operação.</h2>
+            <p className="text-zinc-400 max-w-2xl mx-auto">Nossos planos acompanham o crescimento da sua clínica. Pague apenas pelo que utilizar.</p>
           </div>
-          <div className="grid md:grid-cols-3 gap-8 items-center max-w-5xl mx-auto">
-            {/* Starter */}
-            <div className="p-8 rounded-3xl bg-white/5 border border-white/10 flex flex-col h-full">
-              <h3 className="text-xl font-bold mb-2">Starter</h3>
-              <p className="text-sm text-zinc-400 mb-6">Para recém-formados.</p>
-              <div className="text-4xl font-bold mb-8">R$ 97<span className="text-lg font-normal text-zinc-500">/mês</span></div>
-              <ul className="space-y-4 mb-8 flex-1 text-sm text-zinc-300">
-                <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-zinc-500"/> 50 pacientes ativos</li>
-                <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-zinc-500"/> Prontuário Básico</li>
-              </ul>
-              {/* CORREÇÃO: bg-transparent adicionado */}
-              <Button variant="outline" className="w-full bg-transparent border-white/20 hover:bg-white/10 text-white">Começar</Button>
+          
+          <div className="grid lg:grid-cols-3 gap-8 items-stretch max-w-6xl mx-auto">
+            
+            {/* FYZEN CORE */}
+            <div className="p-8 rounded-3xl bg-white/5 border border-white/10 flex flex-col h-full relative">
+              <h3 className="text-xl font-bold mb-1 text-white">Fyzen Core</h3>
+              <p className="text-sm text-zinc-400 mb-6">Organize seus atendimentos.</p>
+              
+              <div className="flex items-end gap-1 mb-2">
+                <span className="text-4xl font-bold text-white">R$ 59,90</span>
+                <span className="text-zinc-500 mb-1">/mês</span>
+              </div>
+              
+              <div className="mb-6">
+                <Badge className="bg-cyan-500/10 text-cyan-400 border-cyan-500/20 hover:bg-cyan-500/20 mb-2 font-medium">
+                  R$ 29,90 nos 3 primeiros meses
+                </Badge>
+                <p className="text-xs text-zinc-500 flex items-center gap-1 mt-1">
+                  Até 25 pacientes ativos <span className="inline-block px-1.5 py-0.5 rounded bg-white/5 border border-white/10 ml-1">+ R$ 3,00 /extra</span>
+                </p>
+              </div>
+
+              <div className="flex-1">
+                <p className="text-xs font-semibold tracking-wider text-zinc-500 uppercase mb-4">O que está incluso</p>
+                <ul className="space-y-4 text-sm text-zinc-300">
+                  <li className="flex items-start gap-3"><CheckCircle2 className="h-4 w-4 text-zinc-500 shrink-0 mt-0.5"/> 1 usuário (Nutricionista)</li>
+                  <li className="flex items-start gap-3"><CheckCircle2 className="h-4 w-4 text-zinc-500 shrink-0 mt-0.5"/> Anamnese Padrão & Evolução</li>
+                  <li className="flex items-start gap-3"><CheckCircle2 className="h-4 w-4 text-zinc-500 shrink-0 mt-0.5"/> Criação de Planos Alimentares</li>
+                  <li className="flex items-start gap-3"><CheckCircle2 className="h-4 w-4 text-zinc-500 shrink-0 mt-0.5"/> Área do Paciente & Chat Básico</li>
+                </ul>
+              </div>
+              <Button variant="outline" className="w-full bg-transparent border-white/20 hover:bg-white/10 text-white mt-8">Começar com Core</Button>
             </div>
             
-            {/* Professional (Destaque) */}
-            <div className="p-8 rounded-3xl bg-gradient-to-b from-[#111] to-[#050505] border border-[#D9F845]/50 flex flex-col h-full transform md:scale-105 shadow-[0_0_40px_rgba(217,248,69,0.15)] relative z-10">
+            {/* FYZEN PRO (DESTAQUE) */}
+            <div className="p-8 rounded-3xl bg-gradient-to-b from-[#111] to-[#050505] border border-[#D9F845]/50 flex flex-col h-full transform lg:scale-105 shadow-[0_0_40px_rgba(217,248,69,0.15)] relative z-10">
               <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2">
-                <Badge className="bg-[#D9F845] text-black hover:bg-[#D9F845] px-3 py-1 uppercase tracking-wider text-[10px] font-bold">Mais Escolhido</Badge>
+                <Badge className="bg-[#D9F845] text-black hover:bg-[#D9F845] px-4 py-1 uppercase tracking-wider text-[10px] font-bold">Mais Escolhido</Badge>
               </div>
-              <h3 className="text-xl font-bold mb-2 text-white">Professional</h3>
-              <p className="text-sm text-zinc-400 mb-6">Para clínicas consolidadas.</p>
-              <div className="text-5xl font-extrabold mb-8 text-white">R$ 197<span className="text-lg font-normal text-zinc-500">/mês</span></div>
-              <ul className="space-y-4 mb-8 flex-1 text-sm font-medium text-white">
-                <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[#D9F845]"/> Pacientes Ilimitados</li>
-                <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[#D9F845]"/> Anamnese Inteligente (IA)</li>
-                <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[#D9F845]"/> Prescrição de Manipulados</li>
-                <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[#D9F845]"/> Marketplace de Consultas</li>
-              </ul>
-              <Button className="w-full bg-[#D9F845] hover:bg-[#c2e03b] text-black font-bold h-12">Assinar Pro</Button>
+              
+              <h3 className="text-xl font-bold mb-1 text-white">Fyzen Pro</h3>
+              <p className="text-sm text-zinc-400 mb-6">Automatize e escale sua clínica.</p>
+              
+              <div className="flex items-end gap-1 mb-2">
+                <span className="text-5xl font-extrabold text-white">R$ 149,90</span>
+                <span className="text-zinc-500 mb-1">/mês</span>
+              </div>
+              
+              <div className="mb-6">
+                <Badge className="bg-[#D9F845]/10 text-[#D9F845] border-[#D9F845]/20 hover:bg-[#D9F845]/20 mb-2 font-medium">
+                  🎁 7 dias grátis para testar
+                </Badge>
+                <div className="space-y-1.5 mt-1">
+                  <p className="text-xs text-zinc-400 flex items-center justify-between">
+                    Até 50 pacientes ativos <span className="inline-block px-1.5 py-0.5 rounded bg-white/10 border border-white/10">+ R$ 2,50 /extra</span>
+                  </p>
+                  <p className="text-xs text-zinc-400 flex items-center justify-between">
+                    Até 3 usuários da equipe <span className="inline-block px-1.5 py-0.5 rounded bg-white/10 border border-white/10">+ R$ 24,90 /extra</span>
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex-1">
+                <p className="text-xs font-semibold tracking-wider text-[#D9F845] uppercase mb-4">Tudo do Core, e mais:</p>
+                <ul className="space-y-4 text-sm font-medium text-white">
+                  <li className="flex items-start gap-3"><CheckCircle2 className="h-4 w-4 text-[#D9F845] shrink-0 mt-0.5"/> Anamnese Inteligente (IA)</li>
+                  <li className="flex items-start gap-3"><CheckCircle2 className="h-4 w-4 text-[#D9F845] shrink-0 mt-0.5"/> Consultas Online & Marketplace</li>
+                  <li className="flex items-start gap-3"><CheckCircle2 className="h-4 w-4 text-[#D9F845] shrink-0 mt-0.5"/> Integração WhatsApp Oficial</li>
+                  <li className="flex items-start gap-3"><CheckCircle2 className="h-4 w-4 text-[#D9F845] shrink-0 mt-0.5"/> Permissões: Recepção, Assistente e Financeiro</li>
+                </ul>
+              </div>
+              <Button className="w-full bg-[#D9F845] hover:bg-[#c2e03b] text-black font-bold h-12 mt-8">Assinar Pro</Button>
             </div>
 
-            {/* Enterprise */}
-            <div className="p-8 rounded-3xl bg-white/5 border border-white/10 flex flex-col h-full">
-              <h3 className="text-xl font-bold mb-2">Enterprise</h3>
-              <p className="text-sm text-zinc-400 mb-6">Múltiplos profissionais.</p>
-              <div className="text-4xl font-bold mb-8">Personalizado</div>
-              <ul className="space-y-4 mb-8 flex-1 text-sm text-zinc-300">
-                <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-zinc-500"/> Tudo do Pro</li>
-                <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-zinc-500"/> Gestão de Equipe (Múltiplas agendas)</li>
-              </ul>
-              {/* CORREÇÃO: bg-transparent adicionado */}
-              <Button variant="outline" className="w-full bg-transparent border-white/20 hover:bg-white/10 text-white">Falar com Vendas</Button>
+            {/* FYZEN CLINIC */}
+            <div className="p-8 rounded-3xl bg-white/5 border border-white/10 flex flex-col h-full relative">
+              <h3 className="text-xl font-bold mb-1 text-white">Fyzen Clinic</h3>
+              <p className="text-sm text-zinc-400 mb-6">Operação profissional completa.</p>
+              
+              <div className="flex items-end gap-1 mb-2">
+                <span className="text-4xl font-bold text-white">R$ 399</span>
+                <span className="text-zinc-500 mb-1">/mês</span>
+              </div>
+              
+              <div className="mb-6">
+                <div className="h-7 mb-2"></div> {/* Espaçador invisível para manter alinhamento com os badges dos outros planos */}
+                <p className="text-xs text-zinc-500 flex items-center gap-1 mt-1">
+                  Pacientes e Usuários Ilimitados
+                </p>
+              </div>
+
+              <div className="flex-1">
+                <p className="text-xs font-semibold tracking-wider text-zinc-500 uppercase mb-4">Tudo do Pro, e mais:</p>
+                <ul className="space-y-4 text-sm text-zinc-300">
+                  <li className="flex items-start gap-3"><Plus className="h-4 w-4 text-cyan-400 shrink-0 mt-0.5"/> Múltiplos Nutricionistas</li>
+                  <li className="flex items-start gap-3"><Plus className="h-4 w-4 text-cyan-400 shrink-0 mt-0.5"/> Múltiplas Unidades Físicas</li>
+                  <li className="flex items-start gap-3"><Plus className="h-4 w-4 text-cyan-400 shrink-0 mt-0.5"/> Dashboards Empresariais & API</li>
+                  <li className="flex items-start gap-3"><Plus className="h-4 w-4 text-cyan-400 shrink-0 mt-0.5"/> Suporte VIP & Gerente de Conta</li>
+                </ul>
+              </div>
+              <Button variant="outline" className="w-full bg-transparent border-white/20 hover:bg-white/10 text-white mt-8">Falar com Vendas</Button>
             </div>
+            
           </div>
 
           {/* BANNER DE AVISO PARA PACIENTES */}
@@ -343,7 +403,7 @@ export default function LandingPage() {
               <div>
                 <h4 className="text-xl font-bold text-white mb-2">E para os pacientes?</h4>
                 <p className="text-sm text-zinc-400 max-w-xl">
-                  O acesso à plataforma Nutri Fyzen é <strong className="text-zinc-200">100% gratuito</strong> para pacientes. Você paga apenas o valor da consulta, que é definido de forma independente por cada nutricionista (não possuímos valor fixo ou taxas escondidas).
+                  O acesso à plataforma Nutri Fyzen é <strong className="text-zinc-200">100% gratuito</strong>. O paciente paga apenas o valor da consulta definido de forma independente por cada nutricionista dentro do nosso Marketplace.
                 </p>
               </div>
             </div>
@@ -359,16 +419,26 @@ export default function LandingPage() {
         <section className="w-full max-w-3xl mx-auto px-6 py-24 mb-20">
           <h2 className="text-3xl font-bold mb-10 text-center">Perguntas Frequentes</h2>
           <Accordion type="single" collapsible className="w-full space-y-4">
-            {["O sistema é para Nutricionistas ou Pacientes?", "Como a Anamnese IA funciona na prática?", "Existe limite de agendamentos no Marketplace?"].map((q, i) => (
-              <AccordionItem key={i} value={`item-${i}`} className="border border-white/10 bg-white/5 px-6 rounded-2xl data-[state=open]:bg-white/10 transition-colors">
-                <AccordionTrigger className="hover:no-underline font-medium text-left">{q}</AccordionTrigger>
-                <AccordionContent className="text-zinc-400 leading-relaxed pb-6">
-                  {i === 0 ? "Nutri Fyzen é um SaaS para nutricionistas gerenciarem suas clínicas. Os pacientes recebem um portal web gratuito para interagir com os planos, evoluções e buscar outros profissionais no nosso marketplace embutido." : 
-                   i === 1 ? "Diferente de formulários estáticos (Google Forms/PDFs), nossa tecnologia utiliza lógica condicional. Se um paciente marca 'Sim' para insônia, novas perguntas específicas sobre higiene do sono se abrem em tempo real." :
-                   "Não. O plano Professional garante infraestrutura ilimitada para seus agendamentos, pacientes ativos e armazenamento de exames."}
-                </AccordionContent>
-              </AccordionItem>
-            ))}
+            <AccordionItem value="item-1" className="border border-white/10 bg-white/5 px-6 rounded-2xl data-[state=open]:bg-white/10 transition-colors">
+              <AccordionTrigger className="hover:no-underline font-medium text-left">Como funciona o limite de pacientes ativos?</AccordionTrigger>
+              <AccordionContent className="text-zinc-400 leading-relaxed pb-6">
+                Um paciente "ativo" é aquele que está em acompanhamento contínuo no sistema. Pacientes inativados ou arquivados não contam no limite. Se você ultrapassar o limite do seu plano, não precisa fazer upgrade imediato: será cobrada apenas uma taxa avulsa (ex: R$ 2,50 a R$ 3,00) por paciente excedente no mês. O sistema escala junto com a sua demanda.
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="item-2" className="border border-white/10 bg-white/5 px-6 rounded-2xl data-[state=open]:bg-white/10 transition-colors">
+              <AccordionTrigger className="hover:no-underline font-medium text-left">Como funciona a comissão do Marketplace?</AccordionTrigger>
+              <AccordionContent className="text-zinc-400 leading-relaxed pb-6">
+                Quando um paciente pesquisa, encontra o seu perfil e faz um pagamento de consulta diretamente pelo ecossistema do Nutri Fyzen, a plataforma retém uma pequena taxa percentual de comissionamento sobre esse agendamento específico pela captação. O restante do valor vai direto para a sua conta. Consultas agendadas diretamente por você com seus próprios pacientes não possuem essa taxa de captação.
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="item-3" className="border border-white/10 bg-white/5 px-6 rounded-2xl data-[state=open]:bg-white/10 transition-colors">
+              <AccordionTrigger className="hover:no-underline font-medium text-left">Quais são as permissões da Equipe no plano Pro?</AccordionTrigger>
+              <AccordionContent className="text-zinc-400 leading-relaxed pb-6">
+                No Fyzen Pro, você pode convidar até 3 membros com acessos restritos: A <strong>Recepcionista</strong> controla apenas horários e mensagens, o <strong>Financeiro</strong> enxerga faturamentos e o <strong>Assistente</strong> auxilia na atualização de prontuários. Como proprietário, você continua com acesso total.
+              </AccordionContent>
+            </AccordionItem>
           </Accordion>
         </section>
 
