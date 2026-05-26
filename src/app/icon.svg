@@ -1,0 +1,23 @@
+<svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Fundo Dark Premium (Estilo App Icon) -->
+  <rect width="48" height="48" rx="12" fill="#050505" />
+  <rect x="1" y="1" width="46" height="46" rx="11" stroke="#27272a" stroke-width="2" />
+  
+  <!-- N - Haste Esquerda -->
+  <path d="M12 36V14" stroke="#FFFFFF" stroke-width="4" stroke-linecap="square" />
+  
+  <!-- N - Diagonal (Fluxo/Verde Lima) -->
+  <path d="M12 14L25 36" stroke="#D9F845" stroke-width="4" stroke-linecap="square" />
+  
+  <!-- N e F - Haste Central Compartilhada -->
+  <path d="M25 36V14" stroke="#FFFFFF" stroke-width="4" stroke-linecap="square" />
+  
+  <!-- F - Barra Superior -->
+  <path d="M25 14H35" stroke="#FFFFFF" stroke-width="4" stroke-linecap="square" />
+  
+  <!-- F - Barra Média -->
+  <path d="M25 24H31" stroke="#FFFFFF" stroke-width="4" stroke-linecap="square" />
+
+  <!-- Detalhe Futurista: Folha Digital (ajustada para encaixar no novo fundo) -->
+  <path d="M38 14 C42 14 42 9 42 9 C38 9 38 14 38 14 Z" fill="#D9F845" />
+</svg>
